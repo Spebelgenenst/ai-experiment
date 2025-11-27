@@ -7,10 +7,11 @@ from discord_webhook import DiscordWebhook
 with open('config.json', 'r') as file:
     config = json.load(file)
 
+with open('promt.json', 'r') as file:
+    promt = json.load(file)
+
 client = genai.Client(api_key=config[0])
 
-#promt enthält: einfach, ohne erklärung, nur der code
-promt = "wie lasse ich mit python in der console \"hello world\" aus? einfach, ohne erklärung, nur der code"
 ai_model = "gemini-2.5-flash"
 
 
