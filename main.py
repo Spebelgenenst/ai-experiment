@@ -7,6 +7,7 @@ from discord_webhook import DiscordWebhook
 with open('config.json', 'r') as file:
     config = json.load(file)
 
+#Wenn du bestimmte Bibliotheken verwenden möchtest musst du sie mit subprosses installieren.
 with open('promt.json', 'r') as file:
     promt = json.load(file)
 
@@ -51,6 +52,7 @@ if __name__ ==  "__main__":
 {code}
 """)
     webhook.execute()
+
     webhook = DiscordWebhook(url=config[1], content=f"""
 ----------------------------------console---------------------------------
 {console_output}
