@@ -49,8 +49,10 @@ if __name__ ==  "__main__":
     webhook = DiscordWebhook(url=config[1], content=f"""
 -----------------------------------code-----------------------------------
 {code}
+""")
+    webhook.execute()
+    webhook = DiscordWebhook(url=config[1], content=f"""
 ----------------------------------console---------------------------------
 {console_output}
 """)
-
     webhook.execute()
