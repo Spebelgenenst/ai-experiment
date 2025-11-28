@@ -12,12 +12,12 @@ client = genai.Client(api_key=config["geminiApiKey"])
 ai_model = "gemini-2.5-flash"
 
 def ai(ai_model, prompt):
-    #response = client.models.generate_content(
-    #    model=ai_model,
-    #    contents=prompt
-    #)
+    response = client.models.generate_content(
+        model=ai_model,
+        contents=prompt
+    )
 
-    return "```python print(\"hello world\") ```"
+    return response # "```python print(\"hello world\") ```" #this is just used for testing
 
 def extract_code(response):
     extract = response[response.find("```python")+10:]
