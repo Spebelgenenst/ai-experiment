@@ -48,9 +48,10 @@ if __name__ ==  "__main__":
 
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
         webhook.add_file(file=code, filename="code.py")
-        console_output, error = execute_code(code)
 
         webhook.execute()
+
+        console_output, error = execute_code(code)
 
         # log in discord webhook
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". output/error")
