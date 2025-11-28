@@ -41,13 +41,13 @@ def execute_code(code):
 
 if __name__ ==  "__main__":
     counter = 0
-    prompt = config["prompt"]
+    prompt_feedback = "None"
     while True:
-        response = ai(ai_model,prompt).text
+        response = ai(ai_model,config["prompt"] + prompt_feedback).text
         code = extract_code(response)
         console_output, error = execute_code(code)
 
-        prompt = f"Console Output: {console_output} \n Error: {error}"
+        prompt_feedback = f"last Console Output: {console_output} \n last Error: {error}"
 
         # log in discord webhook
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter))
