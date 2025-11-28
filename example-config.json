@@ -1,1 +1,4 @@
-["your Gemini key here","your discord webhook url here"]
+{
+  "geminiApiKey": "your_key_here",
+  "discordWebHook": "your_discord_webhook_url_here"
+}
