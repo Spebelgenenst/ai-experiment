@@ -21,3 +21,5 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 6. paste it in the _credentials.json_ file
 7. run the program and hope your pc doesn't explote :3
 8. (optional) paste your own prompt in _prompt.md_
+
+Zitat Spebel: "Vibe Coding is my hobby"
