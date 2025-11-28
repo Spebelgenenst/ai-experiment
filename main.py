@@ -4,8 +4,8 @@ from io import StringIO
 import sys
 from discord_webhook import DiscordWebhook
 
-with open('config.json', 'r') as file:
-    config = json.load(file)
+with open('prompt.md', 'r') as file:
+    prompt = file.read()
 
 with open('credentials.json', 'r') as file:
     credentials = json.load(file)
@@ -43,7 +43,7 @@ if __name__ ==  "__main__":
     counter = 0
     prompt_feedback = "None"
     while True:
-        response = ai(ai_model,config["prompt"] + prompt_feedback).text
+        response = ai(ai_model, prompt + prompt_feedback).text
         if not response:
             continue
 
