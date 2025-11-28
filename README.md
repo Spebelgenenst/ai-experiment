@@ -1,1 +1,22 @@
-If an AI can code a slightly better version of itself, and the new AI does the same. This prosses repeated over and over, could lead to an explosion in AI smartness.
+This is just a silly project to have some fun. In theory the ai could take over the entire world or just delete your hard drive... who knows...
+
+If the AI can code a slightly better version of itself, and the new AI does the same. This prosses repeated over and over, could lead to an explosion in AI smartness. This is just one scenario...
+
+**Install**
+1. download the latest [release](https://github.com/Spebelgenenst/ai-experement/releases) or clone the reposetory
+2. make shure you have all depentensies installed (google genai, discord_webhook, python-io)
+   linux install:
+   ```
+   pip install Python-IO
+   pip install discord-webhook
+   pip install -q -U google-genai
+   ```
+
+**Setup**
+1. Rename the _example_config.json_ file to _config.json_.
+2. Go to [google ai studio](aistudio.google.com) and sign in
+3. grab your gemini key
+4. paste it in the _config.json_ file
+5. create a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+6. paste it in the _config.json_ file
+7. run the program and hope your pc doesn't explote :3
