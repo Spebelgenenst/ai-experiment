@@ -56,6 +56,8 @@ if __name__ ==  "__main__":
 
         console_output, error = execute_code(code)
 
+        print(console_output)
+
         # log in discord webhook
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". output")
         webhook.add_file(file=console_output, filename="output.log")
