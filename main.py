@@ -46,14 +46,14 @@ if __name__ ==  "__main__":
         response = ai(ai_model,config["prompt"] + prompt_feedback).text
         code = extract_code(response)
 
-        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter))
+        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
         webhook.add_file(file=code, filename="code.py")
         console_output, error = execute_code(code)
 
         webhook.execute()
 
         # log in discord webhook
-        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter))
+        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". output/error")
         webhook.add_file(file=console_output, filename="output.log")
         if error:
             webhook.add_file(file=str(error), filename="error.log")
