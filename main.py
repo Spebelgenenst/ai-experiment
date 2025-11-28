@@ -42,19 +42,15 @@ def execute_code(code):
     return output.getvalue()
 
 if __name__ ==  "__main__":
-    response = str(ai(ai_model,promt))
-    code = extract_code(response)
-    console_output = execute_code(code)
+    counter = 0
+    while True:
+        response = str(ai(ai_model,promt))
+        code = extract_code(response)
+        console_output = execute_code(code)
 
-    #log in discord webhook
-    webhook = DiscordWebhook(url=config[1], content=f"""
------------------------------------code-----------------------------------
-{code}
-""")
-    webhook.execute()
-
-    webhook = DiscordWebhook(url=config[1], content=f"""
-----------------------------------console---------------------------------
-{console_output}
-""")
-    webhook.execute()
+        #log in discord webhook
+        webhook = DiscordWebhook(url=config[1], content=str(counter))
+        webhook.add_file(file=code, filename="code")
+        webhook.add_file(file=console_output, filename="output")
+        webhook.execute()
+        counter += 1
