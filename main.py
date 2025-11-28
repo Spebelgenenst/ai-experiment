@@ -12,12 +12,12 @@ client = genai.Client(api_key=config["geminiApiKey"])
 ai_model = "gemini-2.5-flash"
 
 def ai(ai_model, prompt):
-    response = client.models.generate_content(
-        model=ai_model,
-        contents=prompt
-    )
+    #response = client.models.generate_content(
+    #    model=ai_model,
+    #    contents=prompt
+    #)
 
-    return response
+    return "```python print(\"hello world\") ```"
 
 def extract_code(response):
     extract = response[response.find("```python")+10:]
@@ -28,13 +28,13 @@ def execute_code(code):
     output = StringIO()
     sys.stdout = output
     try:
-        exec(extract_code(code))
+        exec(code)
         error = None
     except Exception as e:
         error = e
-    sys.stdout = sys.__stdout__, error
+    sys.stdout = sys.__stdout__
 
-    return output.getvalue()
+    return output.getvalue(), error
 
 if __name__ ==  "__main__":
     counter = 0
@@ -51,7 +51,7 @@ if __name__ ==  "__main__":
         webhook.add_file(file=code, filename="code.py")
         webhook.add_file(file=console_output, filename="output.log")
         if error:
-            webhook.add_file(file=error, filename="error.log")
+            webhook.add_file(file=str(error), filename="error.log")
 
         webhook.execute()
         counter += 1
