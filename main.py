@@ -7,7 +7,10 @@ from discord_webhook import DiscordWebhook
 with open('config.json', 'r') as file:
     config = json.load(file)
 
-client = genai.Client(api_key=config["geminiApiKey"])
+with open('credentials.json', 'r') as file:
+    credentials = json.load(file)
+
+client = genai.Client(api_key=credentials["geminiApiKey"])
 
 ai_model = "gemini-2.5-flash"
 
@@ -47,7 +50,7 @@ if __name__ ==  "__main__":
         prompt = f"Console Output: {console_output} \n Error: {error}"
 
         # log in discord webhook
-        webhook = DiscordWebhook(url=config["discordWebHook"], content=str(counter))
+        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter))
         webhook.add_file(file=code, filename="code.py")
         webhook.add_file(file=console_output, filename="output.log")
         if error:
