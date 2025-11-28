@@ -43,8 +43,8 @@ if __name__ ==  "__main__":
     counter = 0
     prompt = config["prompt"]
     while True:
-        response = str(ai(ai_model,prompt))
-        code = extract_code(response.text)
+        response = ai(ai_model,prompt).text
+        code = extract_code(response)
         console_output, error = execute_code(code)
 
         prompt = f"Console Output: {console_output} \n Error: {error}"
