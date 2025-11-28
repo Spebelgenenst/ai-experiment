@@ -19,7 +19,7 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 4. paste it in the _credentials.json_ file
 5. create a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 6. paste it in the _credentials.json_ file
-7. run the program and hope your pc doesn't explote :3
-8. (optional) paste your own prompt in _prompt.md_
+7. (optional) paste your own prompt in _prompt.md_
+8. run the program and hope your pc doesn't explote :3
 
-Zitat Spebel: "Vibe Coding is my hobby"
+Zitat Spebell: "Vibe Coding is my hobby"
