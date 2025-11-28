@@ -49,7 +49,7 @@ if __name__ ==  "__main__":
 
         # log in discord webhook
         webhook = DiscordWebhook(url=config["discordWebHook"], content=str(counter))
-        webhook.add_file(file=code, filename="code")
+        webhook.add_file(file=code, filename="code.py")
         webhook.add_file(file=console_output, filename="output")
         webhook.execute()
         counter += 1
