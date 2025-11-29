@@ -28,6 +28,11 @@ def extract_code(response):
         extract = extract[:extract.find("```")]
     except:
         return None
+    
+    print("---------raw-----------")
+    print(response)
+    print("---------code----------")
+    print(code)
 
     return extract
 
