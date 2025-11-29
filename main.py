@@ -40,10 +40,13 @@ def extract_code(response):
 
 def execute_code(code):
     error = None
+    custom_globals = {"__builtins__": __builtins__}
+    custom_locals = {}
     output = StringIO()
     sys.stdout = output
+
     try:
-        exec(code)
+        exec(code, custom_globals, custom_locals)
     except Exception:
         error = traceback.format_exc()
     sys.stdout = sys.__stdout__
