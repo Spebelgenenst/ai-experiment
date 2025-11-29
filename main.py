@@ -23,8 +23,12 @@ def ai(ai_model, prompt):
     return response
 
 def extract_code(response):
-    extract = response[response.find("```python")+10:]
-    extract = extract[:extract.find("```")]
+    try:
+        extract = response[response.find("```python")+10:]
+        extract = extract[:extract.find("```")]
+    except:
+        return None
+
     return extract
 
 def execute_code(code):
@@ -47,7 +51,7 @@ if __name__ ==  "__main__":
         if not response:
             continue
 
-        code = extract_code(response)
+        code = extract_code(response.text)
 
         print(response)
         print("-----------------------------")
