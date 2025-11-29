@@ -28,4 +28,4 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 4. save your progression, the previous may have saved something
 5. do not use placeholders cause the code gets executed without changes
 
-Zitat Spebell: "Vibe Coding is my hobby"
+Quote Spebell: "Vibe Coding is my hobby"
