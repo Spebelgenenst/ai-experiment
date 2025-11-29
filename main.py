@@ -25,7 +25,7 @@ def ai(ai_model, prompt):
 def extract_code(response):
     try:
         code = response[response.find("```python")+10:]
-        code = extract[:extract.find("```")]
+        code = code[:code.find("```")]
     except:
         return None
     
