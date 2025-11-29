@@ -3,6 +3,7 @@ from google import genai
 from io import StringIO
 import sys
 from discord_webhook import DiscordWebhook
+import traceback
 
 with open('prompt.md', 'r') as file:
     prompt = file.read()
@@ -43,8 +44,8 @@ def execute_code(code):
     sys.stdout = output
     try:
         exec(code)
-    except Exception as e:
-        error = e
+    except Exception:
+        error = traceback.format_exc()
     sys.stdout = sys.__stdout__
 
     return output.getvalue(), error
