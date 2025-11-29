@@ -5,7 +5,7 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 **Install**
 1. download the latest [release](https://github.com/Spebelgenenst/ai-experement/releases) or clone the reposetory
 2. make shure you have all depentensies installed (google genai, discord_webhook, python-io)
-   linux install:
+   install:
    ```
    pip install Python-IO
    pip install discord-webhook
