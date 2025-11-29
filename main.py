@@ -60,7 +60,11 @@ if __name__ ==  "__main__":
         code = extract_code(response.text)
         if not code:
             prompt_feedback = "No python code found, please write python code!"
-            code = response
+
+            webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". response without python code")
+            webhook.add_file(file=response, filename="response.log")
+            webhook.execute()
+            
             continue
 
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
