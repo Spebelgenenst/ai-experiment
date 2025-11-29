@@ -44,7 +44,7 @@ def execute_code(code):
         exec(code)
         error = None
     except Exception as e:
-        error = e
+        error = e.with_traceback
     sys.stdout = sys.__stdout__
 
     return output.getvalue(), error
