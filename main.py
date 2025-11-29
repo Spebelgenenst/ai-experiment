@@ -56,6 +56,7 @@ if __name__ ==  "__main__":
 
         console_output, error = execute_code(code)
 
+        print("---------------------------")
         print(console_output)
 
         # log in discord webhook
