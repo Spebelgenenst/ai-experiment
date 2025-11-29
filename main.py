@@ -28,7 +28,7 @@ def extract_code(response):
         code = response[start+10:]
         code = code[:code.find("```")]
     else:
-        return None
+        return "print(\"no python code found\")"
     
     print("---------raw-----------")
     print(response)
