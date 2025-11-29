@@ -21,4 +21,12 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 7. (optional) paste your own prompt in _prompt.md_
 8. run the program and hope your pc doesn't explote :3
 
+**Tips for Prompt**
+include in prompt:
+1. write in python
+2. without explanation, just the code, no user input
+3. dependencies can be installed thru subprocess (use --break-system-packages when prompted)
+4. save your progression, the previous may have saved something
+5. do not use placeholders cause the code gets executed without changes
+
 Zitat Spebell: "Vibe Coding is my hobby"
