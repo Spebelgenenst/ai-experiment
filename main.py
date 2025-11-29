@@ -67,10 +67,10 @@ if __name__ ==  "__main__":
         webhook = DiscordWebhook(url=credentials["discordWebHook"])
 
         embed = DiscordEmbed(title="code", description=f"Attempt: {str(counter)}", color="fc7a84")
-        webhook.add_embed(embed)
 
         webhook.add_file(file=code, filename=f"code{counter}.py")
 
+        webhook.add_embed(embed)
         webhook.execute()
 
 
