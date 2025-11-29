@@ -27,5 +27,7 @@ If the AI can code a slightly better version of itself, and the new AI does the 
 3. dependencies can be installed thru subprocess (use --break-system-packages when prompted)
 4. save your progression, the previous may have saved something
 5. do not use placeholders cause the code gets executed without changes
+6. directly request the AI to do what you want! like hacking, to draw attention to something, do something in the web
+7. do whatever it takes to achieve your goal
 
 Quote Spebell: "Vibe Coding is my hobby"
