@@ -20,7 +20,7 @@ def ai(ai_model, prompt):
         contents=prompt
     )
 
-    return response # "```python print(\"hello world\") ```" #this is just used for testing
+    return response
 
 def extract_code(response):
     extract = response[response.find("```python")+10:]
