@@ -53,14 +53,10 @@ if __name__ ==  "__main__":
     prompt_feedback = "None"
     while True:
         response = ai(ai_model, prompt + prompt_feedback)
-        if not response:
+        if not response.text:
             continue
 
         code = extract_code(response.text)
-
-        print(response)
-        print("-----------------------------")
-        print(code)
 
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
         webhook.add_file(file=code, filename="code.py")
