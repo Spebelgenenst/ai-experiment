@@ -1,6 +1,6 @@
 import json
 from google import genai
-from discord_webhook import DiscordWebhook
+from discord_webhook import DiscordWebhook, DiscordEmbed
 import subprocess
 
 with open('prompt.md', 'r') as file:
@@ -64,9 +64,13 @@ if __name__ ==  "__main__":
             
             continue
 
-        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
+        webhook = DiscordWebhook(url=credentials["discordWebHook"])
+
+        embed = DiscordEmbed(title="code", description=f"Attempt: {str(counter)}", color="fc7a84")
+
         webhook.add_file(file=code, filename=f"code{counter}.py")
 
+        webhook.add_embed(embed)
         webhook.execute()
 
 
@@ -74,15 +78,18 @@ if __name__ ==  "__main__":
 
         # log in discord webhook
         print(f"last Console Output: {console_output}")
-        
-        webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". output")
+
+        webhook = DiscordWebhook(url=credentials["discordWebHook"])
+
+        embed = DiscordEmbed(title="output", description=f"Attempt: {str(counter)}", color="fc7a84")
+
         webhook.add_file(file=console_output, filename=f"output{counter}.log")
         if error:
             webhook.add_file(file=str(error), filename=f"error{counter}.log")
-            webhook.content = str(counter)+". output+error"
+            embed.title = "output & errors"
             print(f"error: {error}")
 
-
+        webhook.add_embed(embed)
         webhook.execute()
 
 
