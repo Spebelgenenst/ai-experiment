@@ -53,11 +53,11 @@ if __name__ ==  "__main__":
     counter = 0
     prompt_feedback = "None"
     while True:
-        response = ai(ai_model, prompt + prompt_feedback)
-        if not response.text:
+        response = ai(ai_model, prompt + prompt_feedback).text
+        if not response:
             continue
 
-        code = extract_code(response.text)
+        code = extract_code(response)
         if not code:
             prompt_feedback = "No python code found, please write python code!"
 
