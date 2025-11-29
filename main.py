@@ -36,9 +36,11 @@ def execute_code(code):
     with open("code.py", "w") as f:
         f.write(code)
 
-    console_output = subprocess.run(["python3","code.py"], text=True, capture_output=True)
+    output = subprocess.run(["python3","code.py"], text=True, capture_output=True)
 
-    return console_output.stdout, console_output.stderr
+    print(output)
+
+    return output.stdout, output.stderr
 
 if __name__ ==  "__main__":
     counter = 0
@@ -59,21 +61,20 @@ if __name__ ==  "__main__":
             continue
 
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". code")
-        webhook.add_file(file=code, filename="code.py")
+        webhook.add_file(file=code, filename=f"code{counter}.py")
 
         webhook.execute()
 
         console_output, error = execute_code(code)
 
-
         # log in discord webhook
         webhook = DiscordWebhook(url=credentials["discordWebHook"], content=str(counter)+". output")
-        webhook.add_file(file=console_output, filename="output.log")
+        webhook.add_file(file=console_output, filename=f"output{counter}.log")
         if error:
-            webhook.add_file(file=str(error), filename="error.log")
+            webhook.add_file(file=str(error), filename=f"error{counter}.log")
             webhook.content = str(counter)+". output+error"
 
         webhook.execute()
 
-        prompt_feedback = f"last Console Output: {console_output}"
+        prompt_feedback = f"last Console Output: {console_output}, error: {error}"
         counter += 1
