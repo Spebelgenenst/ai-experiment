@@ -43,7 +43,7 @@ if __name__ ==  "__main__":
     counter = 0
     prompt_feedback = "None"
     while True:
-        response = ai(ai_model, prompt + prompt_feedback).text
+        response = ai(ai_model, prompt + prompt_feedback)
         if not response:
             continue
 
