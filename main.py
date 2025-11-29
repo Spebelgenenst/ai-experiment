@@ -41,6 +41,7 @@ def execute_code(code):
     return output.stdout, output.stderr
 
 if __name__ ==  "__main__":
+
     counter = 0
     prompt_feedback = "None"
     while True:
@@ -63,6 +64,7 @@ if __name__ ==  "__main__":
 
         webhook.execute()
 
+
         console_output, error = execute_code(code)
 
         # log in discord webhook
@@ -71,8 +73,12 @@ if __name__ ==  "__main__":
         if error:
             webhook.add_file(file=str(error), filename=f"error{counter}.log")
             webhook.content = str(counter)+". output+error"
+            print(f"error: {error}")
+
+        print(f"last Console Output: {console_output}")
 
         webhook.execute()
+
 
         prompt_feedback = f"last Console Output: {console_output}, error: {error}"
         counter += 1
