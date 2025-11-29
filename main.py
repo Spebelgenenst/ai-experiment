@@ -68,7 +68,7 @@ if __name__ ==  "__main__":
 
         embed = DiscordEmbed(title="code", description=f"Attempt: {str(counter)}", color="fc7a84")
 
-        webhook.add_file(file=code, filename=f"code{counter}.py")
+        webhook.add_file(file=code, filename=f"code_{counter}.py")
 
         webhook.add_embed(embed)
         webhook.execute()
@@ -83,9 +83,9 @@ if __name__ ==  "__main__":
 
         embed = DiscordEmbed(title="output", description=f"Attempt: {str(counter)}", color="fc7a84")
 
-        webhook.add_file(file=console_output, filename=f"output{counter}.log")
+        webhook.add_file(file=console_output, filename=f"output_{counter}.log")
         if error:
-            webhook.add_file(file=str(error), filename=f"error{counter}.log")
+            webhook.add_file(file=str(error), filename=f"error_{counter}.log")
             embed.title = "output & errors"
             print(f"error: {error}")
 
