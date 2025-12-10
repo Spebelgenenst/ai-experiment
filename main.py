@@ -1,11 +1,12 @@
-#mogg
 import json
 from google import genai
 from discord_webhook import DiscordWebhook, DiscordEmbed
-import subprocess
+import PyGithub
+import StringIO
+from time import sleep
 
-with open('prompt.md', 'r') as file:
-    prompt = file.read()
+#with open('prompt.md', 'r') as file:
+#    prompt = file.read()
 
 with open('credentials.json', 'r') as file:
     credentials = json.load(file)
@@ -13,6 +14,8 @@ with open('credentials.json', 'r') as file:
 client = genai.Client(api_key=credentials["geminiApiKey"])
 
 ai_model = "gemini-2.5-flash"
+
+repo = g.get_repo("Reponame/Here")
 
 def ai(ai_model, prompt):
     response = client.models.generate_content(
@@ -22,32 +25,16 @@ def ai(ai_model, prompt):
 
     return response
 
-def extract_code(response):
-    start = response.find("```python")
-    if start  != -1:
-        code = response[start+10:]
-        code = code[:code.find("```")]
-    else:
-        return None
-
-    return code
-
-def execute_code(code):
-    
-    with open("code.py", "w") as f:
-        f.write(code)
-
-    output = subprocess.run(["python3","code.py"], text=True, capture_output=True)
-
-    return output.stdout, output.stderr
-
 if __name__ ==  "__main__":
 
-    counter = 0
-    prompt_feedback = "None"
     while True:
+        issue_open = False
+        while not issue_open:
+            open_issues = repo.get_issues(state='open')
+            sleep(30)
+        
         print("waiting for ai to respond...")
-        response = ai(ai_model, prompt + prompt_feedback).text
+        response = ai(ai_model, prompt).text
         if not response:
             continue
         
