@@ -1,3 +1,4 @@
+#mogg
 import json
 from google import genai
 from discord_webhook import DiscordWebhook, DiscordEmbed
