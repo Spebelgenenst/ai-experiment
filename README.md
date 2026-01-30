@@ -1,8 +1,6 @@
-# Be careful executing the python script! You can't control what the AI ​​does.
+# Be careful executing this python script! You can't control what the AI ​​does.
 
 This is just a silly project to have some fun. In theory the ai could take over the entire world or just delete your hard drive... who knows...
-
-If the AI can code a slightly better version of itself, and the new AI does the same. This process repeated over and over, could lead to an explosion in AI smartness. This is just one scenario...
 
 **Install**
 1. download the latest [release](https://github.com/Spebelgenenst/ai-experiment/releases) or clone the repository
